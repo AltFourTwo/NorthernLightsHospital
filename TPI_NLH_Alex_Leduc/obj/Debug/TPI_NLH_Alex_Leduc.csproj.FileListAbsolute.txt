@@ -1,0 +1,98 @@
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\TPI_NLH_Alex_Leduc.exe.config
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\TPI_NLH_Alex_Leduc.exe
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\TPI_NLH_Alex_Leduc.pdb
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.csprojResolveAssemblyReference.cache
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\Acceuil.g.cs
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\Login.g.cs
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\MainWindow.g.cs
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\App.g.cs
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc_MarkupCompile.cache
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc_MarkupCompile.lref
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\Acceuil.baml
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\Login.baml
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\MainWindow.baml
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.g.resources
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.Properties.Resources.resources
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.csproj.GenerateResource.Cache
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.exe
+C:\Users\usager\Documents\projet\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.pdb
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\TPI_NLH_Alex_Leduc.exe.config
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.exe
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.pdb
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\TPI_NLH_Alex_Leduc.exe
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\TPI_NLH_Alex_Leduc.pdb
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\Login.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueAdmin.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueClerk.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueMedecin.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\WindowMGR.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\App.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc_MarkupCompile.cache
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc_MarkupCompile.lref
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\Login.baml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueAdmin.baml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueClerk.baml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueMedecin.baml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\WindowMGR.baml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.g.resources
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.Properties.Resources.resources
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.csproj.GenerateResource.Cache
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\TPI_NLH_Alex_Leduc.exe.config
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.exe
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.pdb
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\TPI_NLH_Alex_Leduc.exe
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\TPI_NLH_Alex_Leduc.pdb
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.csprojResolveAssemblyReference.cache
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\Login.g.cs
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\RecherchePatient.g.cs
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\Test.g.cs
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueAdmin.g.cs
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueClerk.g.cs
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueMedecin.g.cs
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\WindowMGR.g.cs
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\App.g.cs
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc_MarkupCompile.cache
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc_MarkupCompile.lref
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\Login.baml
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\RecherchePatient.baml
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\Test.baml
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueAdmin.baml
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueClerk.baml
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueMedecin.baml
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\WindowMGR.baml
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.g.resources
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.Properties.Resources.resources
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.csproj.GenerateResource.Cache
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\EntityFramework.dll
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\EntityFramework.xml
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc_Content.g.cs
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueAdminDepartements.g.cs
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueAdminDepartements.baml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueAdminDepartements.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc_Content.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\EntityFramework.dll
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\EntityFramework.xml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueAdminDepartements.baml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueAdminPersonnel.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueAdminPersonnel.baml
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueAdminPersonnel.g.cs
+C:\Users\usager\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueAdminPersonnel.baml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueClerkDetailsPatient.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueClerkListePatients.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueClerkDetailsPatient.baml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueClerkListePatients.baml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueClerkAdmission.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueClerkAdmission.baml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\TPI_NLH_Alex_Leduc.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueClerkListeMedecins.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueClerkListeMedecins.baml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueChambresEtLits.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueChambresEtLits.baml
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueDossiers.g.cs
+C:\Users\Alex\Documents\Visual Studio 2015\Projects\TPI_NLH_Alex_Leduc\TPI_NLH_Alex_Leduc\obj\Debug\VueDossiers.baml

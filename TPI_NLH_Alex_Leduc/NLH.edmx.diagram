@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="67edc0b40b154db6a59870cc7f1cf179" Name="Diagram1">
+        <EntityTypeShape EntityType="NLH_ALEX_LEDUCModel.Chambre" Width="1.5" PointX="4.875" PointY="3.25" />
+        <EntityTypeShape EntityType="NLH_ALEX_LEDUCModel.Departement" Width="1.5" PointX="2.875" PointY="0.75" />
+        <EntityTypeShape EntityType="NLH_ALEX_LEDUCModel.DepartementMedical" Width="1.5" PointX="2.875" PointY="3.25" />
+        <EntityTypeShape EntityType="NLH_ALEX_LEDUCModel.Employe" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="NLH_ALEX_LEDUCModel.Lit" Width="1.5" PointX="4.875" PointY="6" />
+        <EntityTypeShape EntityType="NLH_ALEX_LEDUCModel.Medecin" Width="1.5" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="NLH_ALEX_LEDUCModel.Patient" Width="1.5" PointX="0.75" PointY="6.625" />
+        <EntityTypeShape EntityType="NLH_ALEX_LEDUCModel.Sejour" Width="1.5" PointX="2.875" PointY="5.5" />
+        <EntityTypeShape EntityType="NLH_ALEX_LEDUCModel.EmpView" Width="1.5" PointX="7.75" PointY="1.375" />
+        <EntityTypeShape EntityType="NLH_ALEX_LEDUCModel.MedView" Width="1.5" PointX="7.75" PointY="4.625" />
+        <EntityTypeShape EntityType="NLH_ALEX_LEDUCModel.SejMedView" Width="1.5" PointX="9.75" PointY="1.375" />
+        <EntityTypeShape EntityType="NLH_ALEX_LEDUCModel.SejourView" Width="1.5" PointX="9.75" PointY="4.625" />
+        <AssociationConnector Association="NLH_ALEX_LEDUCModel.FK_Chambre_Chambre" />
+        <AssociationConnector Association="NLH_ALEX_LEDUCModel.FK_Lit_Chambre" />
+        <AssociationConnector Association="NLH_ALEX_LEDUCModel.FK_Employe_Departement" />
+        <AssociationConnector Association="NLH_ALEX_LEDUCModel.FK_Medecin_DepartementMedical" />
+        <AssociationConnector Association="NLH_ALEX_LEDUCModel.FK_Medecin_Employe" />
+        <AssociationConnector Association="NLH_ALEX_LEDUCModel.FK_Sejour_Lit" />
+        <AssociationConnector Association="NLH_ALEX_LEDUCModel.FK_Sejour_Medecin" />
+        <AssociationConnector Association="NLH_ALEX_LEDUCModel.FK_Sejour_Patient" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

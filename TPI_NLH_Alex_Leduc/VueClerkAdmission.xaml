@@ -1,0 +1,111 @@
+﻿<Page x:Class="TPI_NLH_Alex_Leduc.VueClerkAdmission"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TPI_NLH_Alex_Leduc"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Admission" Width="720" Height="400">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Label Name="lblHeader" Content="Admission" 
+               FontSize="18" FontWeight="SemiBold" 
+               Grid.Column="1" Grid.ColumnSpan="6"
+               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <TextBox  Name="txtBoxPredispo" Margin="10,10" IsReadOnly="True"
+                  FontSize="14" FontWeight="SemiBold" Foreground="Blue"
+                  Grid.Column="5" Grid.Row="2" Grid.ColumnSpan="2" Grid.RowSpan="1"
+                  BorderThickness="0">• Choix Normal de chambre et lit</TextBox>
+
+        <TextBox  Name="txtBoxErreur" Margin="10,10" IsReadOnly="True"
+                  FontSize="14" FontWeight="SemiBold" Foreground="Red"
+                  Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="2"
+                  BorderThickness="0"/>
+
+        <!-- Patient -->
+        <Label Content="Patient :" Grid.Column="1" Grid.Row="2"
+               HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Name="txtPatient" Margin="5,25,10,10" IsReadOnly="True"
+                 Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <Button Name="btnSelectPatient" Content="Choisir.." Padding="5,2" Margin="5,10"
+                Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2"
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="btnSelectPatient_Click"/>
+
+        <!-- Raison -->
+        <Label Content="Raison :" Grid.Column="1" Grid.Row="3"
+               HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ComboBox Name="cbRaison" Margin="5,25,10,10"
+                  Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"
+                  IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" 
+                  DisplayMemberPath="NomDeptMed" SelectionChanged="cbRaison_SelectionChanged"/>
+
+        <!-- Medecin -->
+        <Label Content="Medecin :" Grid.Column="1" Grid.Row="4"
+               HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Name="txtMedecin" Margin="5,25,10,10"  IsReadOnly="True"
+                 Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2"/>
+        <Button Name="btnSelectMedecin" Content="Choisir.." Padding="5,2" Margin="5,10"
+                Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2"
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="btnSelectMedecin_Click"/>
+
+        <!-- Chambre et Lit -->
+        <Label Content="Chambre et Lit :" Grid.Column="1" Grid.Row="5"
+               HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <TextBox Name="txtLit" Margin="5,25,10,10" IsReadOnly="True"
+                 Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2"/>
+        <Button Name="btnLit" Content="Choisir.." Padding="5,2" Margin="5,10"
+                Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2"
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="btnLit_Click"/>
+
+        <!-- Locations -->
+        <GroupBox Header="Locations" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="4" BorderThickness="2"/>
+        <Label Content="Télévision" Margin="20,18,50,13"
+               Grid.Column="1" Grid.Row="6"
+               HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <CheckBox Name="xbTV" Margin="0,0,25,16"
+                  Grid.Column="1" Grid.Row="6"
+                  HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+        <Label Content="Téléphone" Margin="12,18,50,13"
+               Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="3"
+               HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+        <CheckBox Name="xbPhone" Margin="0,0,25,16"
+                  Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="3"
+                  HorizontalAlignment="Right" VerticalAlignment="Bottom"/>
+
+
+
+
+        <!-- Boutons -->
+        <Button Name="btnRetour" Content="◄" FontSize="20" Margin="5,5" Click="btnRetour_Click"/>
+        <Button Name="btnSave" Content="Enregistrer"
+                Grid.Column="5" Grid.Row="5" MinWidth="75" Margin="0,10" Padding="4"
+                HorizontalAlignment="Center" VerticalAlignment="Bottom" Click="btnSave_Click"/>
+        <Button Name="btnVider" Content="Vider" MinWidth="75" Margin="0,10" Padding="4"
+                Grid.Column="5" Grid.Row="6" 
+                HorizontalAlignment="Center" VerticalAlignment="Top" Click="btnVider_Click"/>
+    </Grid>
+</Page>

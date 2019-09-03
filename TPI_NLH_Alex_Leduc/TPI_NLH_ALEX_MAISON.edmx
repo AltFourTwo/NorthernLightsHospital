@@ -1,0 +1,614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="NLH_ALEX_LEDUCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Chambre">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tarif" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Type" Type="char" MaxLength="10" />
+          <Property Name="DepMedID" Type="int" />
+        </EntityType>
+        <EntityType Name="Departement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomDept" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="DepartementMedical">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NomDeptMed" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Employe">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="50" />
+          <Property Name="USR" Type="nvarchar" MaxLength="16" />
+          <Property Name="PSW" Type="nvarchar" MaxLength="16" />
+          <Property Name="DepID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Occupe" Type="bit" />
+          <Property Name="ChambreID" Type="int" />
+        </EntityType>
+        <EntityType Name="Medecin">
+          <Key>
+            <PropertyRef Name="MedID" />
+          </Key>
+          <Property Name="MedID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DepMedID" Type="int" />
+          <Property Name="EmpID" Type="int" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="50" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="50" />
+          <Property Name="Parent" Type="nvarchar" MaxLength="50" />
+          <Property Name="BirthDate" Type="date" />
+          <Property Name="Assurance" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Sejour">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tele" Type="bit" />
+          <Property Name="PreDispo" Type="tinyint" />
+          <Property Name="LitID" Type="int" />
+          <Property Name="PatientID" Type="int" />
+          <Property Name="MedID" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'NLH_ALEX_LEDUC.dbo.FullEmpView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="FullEmpView">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="MedID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Prenom" Type="nvarchar" MaxLength="50" />
+          <Property Name="Nom" Type="nvarchar" MaxLength="50" />
+          <Property Name="USR" Type="nvarchar" MaxLength="16" />
+          <Property Name="PSW" Type="nvarchar" MaxLength="16" />
+          <Property Name="NomDept" Type="nvarchar" MaxLength="50" />
+          <Property Name="MedID" Type="int" Nullable="false" />
+          <Property Name="DepMedID" Type="int" />
+        </EntityType>
+        <Association Name="FK_Chambre_Chambre">
+          <End Role="DepartementMedical" Type="Self.DepartementMedical" Multiplicity="0..1" />
+          <End Role="Chambre" Type="Self.Chambre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartementMedical">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Chambre">
+              <PropertyRef Name="DepMedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employe_Departement">
+          <End Role="Departement" Type="Self.Departement" Multiplicity="1" />
+          <End Role="Employe" Type="Self.Employe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departement">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employe">
+              <PropertyRef Name="DepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lit_Chambre">
+          <End Role="Chambre" Type="Self.Chambre" Multiplicity="0..1" />
+          <End Role="Lit" Type="Self.Lit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chambre">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Lit">
+              <PropertyRef Name="ChambreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Medecin_DepartementMedical">
+          <End Role="DepartementMedical" Type="Self.DepartementMedical" Multiplicity="0..1" />
+          <End Role="Medecin" Type="Self.Medecin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartementMedical">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Medecin">
+              <PropertyRef Name="DepMedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Medecin_Employe">
+          <End Role="Employe" Type="Self.Employe" Multiplicity="0..1" />
+          <End Role="Medecin" Type="Self.Medecin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employe">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Medecin">
+              <PropertyRef Name="EmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sejour_Lit">
+          <End Role="Lit" Type="Self.Lit" Multiplicity="0..1" />
+          <End Role="Sejour" Type="Self.Sejour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sejour">
+              <PropertyRef Name="LitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sejour_Medecin">
+          <End Role="Medecin" Type="Self.Medecin" Multiplicity="0..1" />
+          <End Role="Sejour" Type="Self.Sejour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medecin">
+              <PropertyRef Name="MedID" />
+            </Principal>
+            <Dependent Role="Sejour">
+              <PropertyRef Name="MedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sejour_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="Sejour" Type="Self.Sejour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sejour">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NLH_ALEX_LEDUCModelStoreContainer">
+          <EntitySet Name="Chambre" EntityType="Self.Chambre" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departement" EntityType="Self.Departement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DepartementMedical" EntityType="Self.DepartementMedical" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employe" EntityType="Self.Employe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lit" EntityType="Self.Lit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Medecin" EntityType="Self.Medecin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sejour" EntityType="Self.Sejour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FullEmpView" EntityType="Self.FullEmpView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [FullEmpView].[ID] AS [ID], 
+    [FullEmpView].[Prenom] AS [Prenom], 
+    [FullEmpView].[Nom] AS [Nom], 
+    [FullEmpView].[USR] AS [USR], 
+    [FullEmpView].[PSW] AS [PSW], 
+    [FullEmpView].[NomDept] AS [NomDept], 
+    [FullEmpView].[MedID] AS [MedID], 
+    [FullEmpView].[DepMedID] AS [DepMedID]
+    FROM [dbo].[FullEmpView] AS [FullEmpView]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Chambre_Chambre" Association="Self.FK_Chambre_Chambre">
+            <End Role="DepartementMedical" EntitySet="DepartementMedical" />
+            <End Role="Chambre" EntitySet="Chambre" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employe_Departement" Association="Self.FK_Employe_Departement">
+            <End Role="Departement" EntitySet="Departement" />
+            <End Role="Employe" EntitySet="Employe" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lit_Chambre" Association="Self.FK_Lit_Chambre">
+            <End Role="Chambre" EntitySet="Chambre" />
+            <End Role="Lit" EntitySet="Lit" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Medecin_DepartementMedical" Association="Self.FK_Medecin_DepartementMedical">
+            <End Role="DepartementMedical" EntitySet="DepartementMedical" />
+            <End Role="Medecin" EntitySet="Medecin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Medecin_Employe" Association="Self.FK_Medecin_Employe">
+            <End Role="Employe" EntitySet="Employe" />
+            <End Role="Medecin" EntitySet="Medecin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sejour_Lit" Association="Self.FK_Sejour_Lit">
+            <End Role="Lit" EntitySet="Lit" />
+            <End Role="Sejour" EntitySet="Sejour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sejour_Medecin" Association="Self.FK_Sejour_Medecin">
+            <End Role="Medecin" EntitySet="Medecin" />
+            <End Role="Sejour" EntitySet="Sejour" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sejour_Patient" Association="Self.FK_Sejour_Patient">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Sejour" EntitySet="Sejour" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NLH_ALEX_LEDUCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Chambre">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tarif" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DepMedID" Type="Int32" />
+          <NavigationProperty Name="DepartementMedical" Relationship="Self.FK_Chambre_Chambre" FromRole="Chambre" ToRole="DepartementMedical" />
+          <NavigationProperty Name="Lits" Relationship="Self.FK_Lit_Chambre" FromRole="Chambre" ToRole="Lit" />
+        </EntityType>
+        <EntityType Name="Departement">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomDept" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Employes" Relationship="Self.FK_Employe_Departement" FromRole="Departement" ToRole="Employe" />
+        </EntityType>
+        <EntityType Name="DepartementMedical">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NomDeptMed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Chambres" Relationship="Self.FK_Chambre_Chambre" FromRole="DepartementMedical" ToRole="Chambre" />
+          <NavigationProperty Name="Medecins" Relationship="Self.FK_Medecin_DepartementMedical" FromRole="DepartementMedical" ToRole="Medecin" />
+        </EntityType>
+        <EntityType Name="Employe">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USR" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="PSW" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="DepID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Departement" Relationship="Self.FK_Employe_Departement" FromRole="Employe" ToRole="Departement" />
+          <NavigationProperty Name="Medecins" Relationship="Self.FK_Medecin_Employe" FromRole="Employe" ToRole="Medecin" />
+        </EntityType>
+        <EntityType Name="Lit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Occupe" Type="Boolean" />
+          <Property Name="ChambreID" Type="Int32" />
+          <NavigationProperty Name="Chambre" Relationship="Self.FK_Lit_Chambre" FromRole="Lit" ToRole="Chambre" />
+          <NavigationProperty Name="Sejours" Relationship="Self.FK_Sejour_Lit" FromRole="Lit" ToRole="Sejour" />
+        </EntityType>
+        <EntityType Name="Medecin">
+          <Key>
+            <PropertyRef Name="MedID" />
+          </Key>
+          <Property Name="MedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DepMedID" Type="Int32" />
+          <Property Name="EmpID" Type="Int32" />
+          <NavigationProperty Name="DepartementMedical" Relationship="Self.FK_Medecin_DepartementMedical" FromRole="Medecin" ToRole="DepartementMedical" />
+          <NavigationProperty Name="Employe" Relationship="Self.FK_Medecin_Employe" FromRole="Medecin" ToRole="Employe" />
+          <NavigationProperty Name="Sejours" Relationship="Self.FK_Sejour_Medecin" FromRole="Medecin" ToRole="Sejour" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Parent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="0" />
+          <Property Name="Assurance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Sejours" Relationship="Self.FK_Sejour_Patient" FromRole="Patient" ToRole="Sejour" />
+        </EntityType>
+        <EntityType Name="Sejour">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tele" Type="Boolean" />
+          <Property Name="PreDispo" Type="Byte" />
+          <Property Name="LitID" Type="Int32" />
+          <Property Name="PatientID" Type="Int32" />
+          <Property Name="MedID" Type="Int32" />
+          <NavigationProperty Name="Lit" Relationship="Self.FK_Sejour_Lit" FromRole="Sejour" ToRole="Lit" />
+          <NavigationProperty Name="Medecin" Relationship="Self.FK_Sejour_Medecin" FromRole="Sejour" ToRole="Medecin" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_Sejour_Patient" FromRole="Sejour" ToRole="Patient" />
+        </EntityType>
+        <Association Name="FK_Chambre_Chambre">
+          <End Role="DepartementMedical" Type="Self.DepartementMedical" Multiplicity="0..1" />
+          <End Role="Chambre" Type="Self.Chambre" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartementMedical">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Chambre">
+              <PropertyRef Name="DepMedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Lit_Chambre">
+          <End Role="Chambre" Type="Self.Chambre" Multiplicity="0..1" />
+          <End Role="Lit" Type="Self.Lit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Chambre">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Lit">
+              <PropertyRef Name="ChambreID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employe_Departement">
+          <End Role="Departement" Type="Self.Departement" Multiplicity="1" />
+          <End Role="Employe" Type="Self.Employe" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departement">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Employe">
+              <PropertyRef Name="DepID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Medecin_DepartementMedical">
+          <End Role="DepartementMedical" Type="Self.DepartementMedical" Multiplicity="0..1" />
+          <End Role="Medecin" Type="Self.Medecin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DepartementMedical">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Medecin">
+              <PropertyRef Name="DepMedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Medecin_Employe">
+          <End Role="Employe" Type="Self.Employe" Multiplicity="0..1" />
+          <End Role="Medecin" Type="Self.Medecin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employe">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Medecin">
+              <PropertyRef Name="EmpID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sejour_Lit">
+          <End Role="Lit" Type="Self.Lit" Multiplicity="0..1" />
+          <End Role="Sejour" Type="Self.Sejour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sejour">
+              <PropertyRef Name="LitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sejour_Medecin">
+          <End Role="Medecin" Type="Self.Medecin" Multiplicity="0..1" />
+          <End Role="Sejour" Type="Self.Sejour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Medecin">
+              <PropertyRef Name="MedID" />
+            </Principal>
+            <Dependent Role="Sejour">
+              <PropertyRef Name="MedID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sejour_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="Sejour" Type="Self.Sejour" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sejour">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NLH_ALEX_LEDUCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Chambres" EntityType="Self.Chambre" />
+          <EntitySet Name="Departements" EntityType="Self.Departement" />
+          <EntitySet Name="DepartementMedicals" EntityType="Self.DepartementMedical" />
+          <EntitySet Name="Employes" EntityType="Self.Employe" />
+          <EntitySet Name="Lits" EntityType="Self.Lit" />
+          <EntitySet Name="Medecins" EntityType="Self.Medecin" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="Sejours" EntityType="Self.Sejour" />
+          <AssociationSet Name="FK_Chambre_Chambre" Association="Self.FK_Chambre_Chambre">
+            <End Role="DepartementMedical" EntitySet="DepartementMedicals" />
+            <End Role="Chambre" EntitySet="Chambres" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Lit_Chambre" Association="Self.FK_Lit_Chambre">
+            <End Role="Chambre" EntitySet="Chambres" />
+            <End Role="Lit" EntitySet="Lits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employe_Departement" Association="Self.FK_Employe_Departement">
+            <End Role="Departement" EntitySet="Departements" />
+            <End Role="Employe" EntitySet="Employes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Medecin_DepartementMedical" Association="Self.FK_Medecin_DepartementMedical">
+            <End Role="DepartementMedical" EntitySet="DepartementMedicals" />
+            <End Role="Medecin" EntitySet="Medecins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Medecin_Employe" Association="Self.FK_Medecin_Employe">
+            <End Role="Employe" EntitySet="Employes" />
+            <End Role="Medecin" EntitySet="Medecins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sejour_Lit" Association="Self.FK_Sejour_Lit">
+            <End Role="Lit" EntitySet="Lits" />
+            <End Role="Sejour" EntitySet="Sejours" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sejour_Medecin" Association="Self.FK_Sejour_Medecin">
+            <End Role="Medecin" EntitySet="Medecins" />
+            <End Role="Sejour" EntitySet="Sejours" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sejour_Patient" Association="Self.FK_Sejour_Patient">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Sejour" EntitySet="Sejours" />
+          </AssociationSet>
+          <EntitySet Name="FullEmpViews" EntityType="NLH_ALEX_LEDUCModel.FullEmpView" />
+        </EntityContainer>
+        <EntityType Name="FullEmpView">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="MedID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="USR" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="PSW" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="NomDept" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MedID" Type="Int32" Nullable="false" />
+          <Property Name="DepMedID" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NLH_ALEX_LEDUCModelStoreContainer" CdmEntityContainer="NLH_ALEX_LEDUCEntities">
+          <EntitySetMapping Name="Chambres">
+            <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.Chambre">
+              <MappingFragment StoreEntitySet="Chambre">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tarif" ColumnName="Tarif" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="DepMedID" ColumnName="DepMedID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departements">
+            <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.Departement">
+              <MappingFragment StoreEntitySet="Departement">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NomDept" ColumnName="NomDept" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DepartementMedicals">
+            <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.DepartementMedical">
+              <MappingFragment StoreEntitySet="DepartementMedical">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NomDeptMed" ColumnName="NomDeptMed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employes">
+            <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.Employe">
+              <MappingFragment StoreEntitySet="Employe">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="USR" ColumnName="USR" />
+                <ScalarProperty Name="PSW" ColumnName="PSW" />
+                <ScalarProperty Name="DepID" ColumnName="DepID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lits">
+            <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.Lit">
+              <MappingFragment StoreEntitySet="Lit">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Occupe" ColumnName="Occupe" />
+                <ScalarProperty Name="ChambreID" ColumnName="ChambreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Medecins">
+            <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.Medecin">
+              <MappingFragment StoreEntitySet="Medecin">
+                <ScalarProperty Name="MedID" ColumnName="MedID" />
+                <ScalarProperty Name="DepMedID" ColumnName="DepMedID" />
+                <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="Parent" ColumnName="Parent" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="Assurance" ColumnName="Assurance" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sejours">
+            <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.Sejour">
+              <MappingFragment StoreEntitySet="Sejour">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tele" ColumnName="Tele" />
+                <ScalarProperty Name="PreDispo" ColumnName="PreDispo" />
+                <ScalarProperty Name="LitID" ColumnName="LitID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="MedID" ColumnName="MedID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FullEmpViews">
+            <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.FullEmpView">
+              <MappingFragment StoreEntitySet="FullEmpView">
+                <ScalarProperty Name="DepMedID" ColumnName="DepMedID" />
+                <ScalarProperty Name="MedID" ColumnName="MedID" />
+                <ScalarProperty Name="NomDept" ColumnName="NomDept" />
+                <ScalarProperty Name="PSW" ColumnName="PSW" />
+                <ScalarProperty Name="USR" ColumnName="USR" />
+                <ScalarProperty Name="Nom" ColumnName="Nom" />
+                <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

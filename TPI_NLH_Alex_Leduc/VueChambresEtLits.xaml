@@ -1,0 +1,102 @@
+﻿<Page x:Class="TPI_NLH_Alex_Leduc.VueChambresEtLits"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TPI_NLH_Alex_Leduc"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Chambres et Lits" Width="720" Height="400">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Label Name="lblHeader" Content="Chambres et Lits" 
+               FontSize="18" FontWeight="SemiBold" 
+               Grid.Column="1" Grid.ColumnSpan="7"
+               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <!-- Département Medical -->
+        <Label Content="Département Médical :" Grid.Column="1" Grid.Row="2"
+               HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ComboBox Name="cbDepMed" Margin="5,25,10,10"
+                  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"
+                  IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" 
+                  DisplayMemberPath="NomDeptMed" SelectionChanged="cbDepMed_SelectionChanged"/>
+
+        <!-- Chambres et boutons +/- -->
+        <!-- Seul un administrateur peux voir les contrôles d'ajout et suppression -->
+        <DataGrid Name="dgChambres" Margin="3" AutoGenerateColumns="False" CanUserAddRows="False"
+                 Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="4"
+                 IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" 
+                 SelectionChanged="lbChambres_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Path=Type}"/>
+                <DataGridTextColumn Header="Tarif" Binding="{Binding Path=Tarif}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="btnAddChambre" Content="+" FontSize="18" Visibility="Hidden"
+                Grid.Column="3" Grid.Row="3" Width="30" Height="30"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Click="btnAddChambre_Click"/>
+        <Button Name="btnDelChambre" Content="-" FontSize="18" Visibility="Hidden"
+                Grid.Column="3" Grid.Row="6" Width="30" Height="30"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Click="btnDelChambre_Click"/>
+
+        <!-- type de chambre a ajouter -->
+        <Label Name="lblType" Content="Type de Chambre :" Visibility="Hidden"
+               Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2"
+               HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ComboBox Name="cbChambreType" Margin="5,25,10,10" Visibility="Hidden"
+                  Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2">
+            <ComboBoxItem Name="cbiStandard">Standard</ComboBoxItem>
+            <ComboBoxItem Name="cbiSemi">Semi-Privé</ComboBoxItem>
+            <ComboBoxItem Name="cbiPrive">Privé</ComboBoxItem>
+        </ComboBox>
+
+        <!-- Lits et boutons +/- -->
+        <!-- Seul un administrateur peux voir les contrôles d'ajout et suppression -->
+        <DataGrid Name="dgLits" Margin="3" AutoGenerateColumns="False"  CanUserAddRows="False"
+                 Grid.Column="7" Grid.Row="3" Grid.ColumnSpan="1" Grid.RowSpan="4"
+                 IsSynchronizedWithCurrentItem="true" ItemsSource="{Binding}" MouseDoubleClick="dgLits_MouseDoubleClick">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}"/>
+                <DataGridTextColumn Header="Occupé" Binding="{Binding Path=Occupe}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="btnAddLit" Content="+" FontSize="18"  Visibility="Hidden"
+                Grid.Column="6" Grid.Row="3" Width="30" Height="30"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Click="btnAddLit_Click"/>
+        <Button Name="btnDelLit" Content="-" FontSize="18" Visibility="Hidden"
+                Grid.Column="6" Grid.Row="6" Width="30" Height="30"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Click="btnDelLit_Click"/>
+
+        <!-- Autre -->
+        <Button Name="btnRetour" Content="◄" FontSize="20" Margin="5,5" Click="btnRetour_Click"/>
+    </Grid>
+</Page>

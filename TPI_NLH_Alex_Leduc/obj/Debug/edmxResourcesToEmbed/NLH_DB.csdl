@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NLH_ALEX_LEDUCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Chambre">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tarif" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="DepID" Type="Int32" />
+    <NavigationProperty Name="Departement" Relationship="Self.FK_Chambre_Chambre" FromRole="Chambre" ToRole="Departement" />
+    <NavigationProperty Name="Lits" Relationship="Self.FK_Lit_Chambre" FromRole="Chambre" ToRole="Lit" />
+  </EntityType>
+  <EntityType Name="Departement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomDept" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Chambres" Relationship="Self.FK_Chambre_Chambre" FromRole="Departement" ToRole="Chambre" />
+    <NavigationProperty Name="Employes" Relationship="Self.FK_Employe_Departement" FromRole="Departement" ToRole="Employe" />
+    <NavigationProperty Name="Sejours" Relationship="Self.FK_Sejour_Departement" FromRole="Departement" ToRole="Sejour" />
+  </EntityType>
+  <EntityType Name="Employe">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="USR" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="PSW" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="DepID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Departement" Relationship="Self.FK_Employe_Departement" FromRole="Employe" ToRole="Departement" />
+  </EntityType>
+  <EntityType Name="Lit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Occupe" Type="Boolean" />
+    <Property Name="ChambreID" Type="Int32" />
+    <NavigationProperty Name="Chambre" Relationship="Self.FK_Lit_Chambre" FromRole="Lit" ToRole="Chambre" />
+    <NavigationProperty Name="Sejours" Relationship="Self.FK_Sejour_Lit" FromRole="Lit" ToRole="Sejour" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <Property Name="Assurance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sejours" Relationship="Self.FK_Sejour_Patient" FromRole="Patient" ToRole="Sejour" />
+  </EntityType>
+  <EntityType Name="Sejour">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tele" Type="Boolean" />
+    <Property Name="PreDispo" Type="Byte" />
+    <Property Name="LitID" Type="Int32" />
+    <Property Name="DepID" Type="Int32" />
+    <Property Name="PatientID" Type="Int32" />
+    <NavigationProperty Name="Departement" Relationship="Self.FK_Sejour_Departement" FromRole="Sejour" ToRole="Departement" />
+    <NavigationProperty Name="Lit" Relationship="Self.FK_Sejour_Lit" FromRole="Sejour" ToRole="Lit" />
+    <NavigationProperty Name="Patient" Relationship="Self.FK_Sejour_Patient" FromRole="Sejour" ToRole="Patient" />
+  </EntityType>
+  <Association Name="FK_Chambre_Chambre">
+    <End Role="Departement" Type="Self.Departement" Multiplicity="0..1" />
+    <End Role="Chambre" Type="Self.Chambre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departement">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Chambre">
+        <PropertyRef Name="DepID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lit_Chambre">
+    <End Role="Chambre" Type="Self.Chambre" Multiplicity="0..1" />
+    <End Role="Lit" Type="Self.Lit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chambre">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Lit">
+        <PropertyRef Name="ChambreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employe_Departement">
+    <End Role="Departement" Type="Self.Departement" Multiplicity="1" />
+    <End Role="Employe" Type="Self.Employe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departement">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employe">
+        <PropertyRef Name="DepID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sejour_Departement">
+    <End Role="Departement" Type="Self.Departement" Multiplicity="0..1" />
+    <End Role="Sejour" Type="Self.Sejour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departement">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sejour">
+        <PropertyRef Name="DepID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sejour_Lit">
+    <End Role="Lit" Type="Self.Lit" Multiplicity="0..1" />
+    <End Role="Sejour" Type="Self.Sejour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lit">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sejour">
+        <PropertyRef Name="LitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sejour_Patient">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+    <End Role="Sejour" Type="Self.Sejour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sejour">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NLH_ALEX_LEDUCEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Chambres" EntityType="Self.Chambre" />
+    <EntitySet Name="Departements" EntityType="Self.Departement" />
+    <EntitySet Name="Employes" EntityType="Self.Employe" />
+    <EntitySet Name="Lits" EntityType="Self.Lit" />
+    <EntitySet Name="Patients" EntityType="Self.Patient" />
+    <EntitySet Name="Sejours" EntityType="Self.Sejour" />
+    <AssociationSet Name="FK_Chambre_Chambre" Association="Self.FK_Chambre_Chambre">
+      <End Role="Departement" EntitySet="Departements" />
+      <End Role="Chambre" EntitySet="Chambres" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lit_Chambre" Association="Self.FK_Lit_Chambre">
+      <End Role="Chambre" EntitySet="Chambres" />
+      <End Role="Lit" EntitySet="Lits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employe_Departement" Association="Self.FK_Employe_Departement">
+      <End Role="Departement" EntitySet="Departements" />
+      <End Role="Employe" EntitySet="Employes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sejour_Departement" Association="Self.FK_Sejour_Departement">
+      <End Role="Departement" EntitySet="Departements" />
+      <End Role="Sejour" EntitySet="Sejours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sejour_Lit" Association="Self.FK_Sejour_Lit">
+      <End Role="Lit" EntitySet="Lits" />
+      <End Role="Sejour" EntitySet="Sejours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sejour_Patient" Association="Self.FK_Sejour_Patient">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Sejour" EntitySet="Sejours" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

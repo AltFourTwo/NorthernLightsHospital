@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NLH_ALEX_LEDUCModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="NLH_ALEX_LEDUCEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Chambres" EntityType="NLH_ALEX_LEDUCModel1.Chambre" />
+    <EntitySet Name="Departements" EntityType="NLH_ALEX_LEDUCModel1.Departement" />
+    <EntitySet Name="DepartementMedicals" EntityType="NLH_ALEX_LEDUCModel1.DepartementMedical" />
+    <EntitySet Name="Employes" EntityType="NLH_ALEX_LEDUCModel1.Employe" />
+    <EntitySet Name="Lits" EntityType="NLH_ALEX_LEDUCModel1.Lit" />
+    <EntitySet Name="Medecins" EntityType="NLH_ALEX_LEDUCModel1.Medecin" />
+    <EntitySet Name="Patients" EntityType="NLH_ALEX_LEDUCModel1.Patient" />
+    <EntitySet Name="Sejours" EntityType="NLH_ALEX_LEDUCModel1.Sejour" />
+    <EntitySet Name="EmpDepViews" EntityType="NLH_ALEX_LEDUCModel1.EmpDepView" />
+    <AssociationSet Name="FK_Chambre_Chambre" Association="NLH_ALEX_LEDUCModel1.FK_Chambre_Chambre">
+      <End Role="DepartementMedical" EntitySet="DepartementMedicals" />
+      <End Role="Chambre" EntitySet="Chambres" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Lit_Chambre" Association="NLH_ALEX_LEDUCModel1.FK_Lit_Chambre">
+      <End Role="Chambre" EntitySet="Chambres" />
+      <End Role="Lit" EntitySet="Lits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employe_Departement" Association="NLH_ALEX_LEDUCModel1.FK_Employe_Departement">
+      <End Role="Departement" EntitySet="Departements" />
+      <End Role="Employe" EntitySet="Employes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Medecin_DepartementMedical" Association="NLH_ALEX_LEDUCModel1.FK_Medecin_DepartementMedical">
+      <End Role="DepartementMedical" EntitySet="DepartementMedicals" />
+      <End Role="Medecin" EntitySet="Medecins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Medecin_Employe" Association="NLH_ALEX_LEDUCModel1.FK_Medecin_Employe">
+      <End Role="Employe" EntitySet="Employes" />
+      <End Role="Medecin" EntitySet="Medecins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sejour_Lit" Association="NLH_ALEX_LEDUCModel1.FK_Sejour_Lit">
+      <End Role="Lit" EntitySet="Lits" />
+      <End Role="Sejour" EntitySet="Sejours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sejour_Medecin" Association="NLH_ALEX_LEDUCModel1.FK_Sejour_Medecin">
+      <End Role="Medecin" EntitySet="Medecins" />
+      <End Role="Sejour" EntitySet="Sejours" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sejour_Patient" Association="NLH_ALEX_LEDUCModel1.FK_Sejour_Patient">
+      <End Role="Patient" EntitySet="Patients" />
+      <End Role="Sejour" EntitySet="Sejours" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Chambre">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tarif" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="DepMedID" Type="Int32" />
+    <NavigationProperty Name="DepartementMedical" Relationship="NLH_ALEX_LEDUCModel1.FK_Chambre_Chambre" FromRole="Chambre" ToRole="DepartementMedical" />
+    <NavigationProperty Name="Lits" Relationship="NLH_ALEX_LEDUCModel1.FK_Lit_Chambre" FromRole="Chambre" ToRole="Lit" />
+  </EntityType>
+  <EntityType Name="Departement">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomDept" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employes" Relationship="NLH_ALEX_LEDUCModel1.FK_Employe_Departement" FromRole="Departement" ToRole="Employe" />
+  </EntityType>
+  <EntityType Name="DepartementMedical">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NomDeptMed" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Chambres" Relationship="NLH_ALEX_LEDUCModel1.FK_Chambre_Chambre" FromRole="DepartementMedical" ToRole="Chambre" />
+    <NavigationProperty Name="Medecins" Relationship="NLH_ALEX_LEDUCModel1.FK_Medecin_DepartementMedical" FromRole="DepartementMedical" ToRole="Medecin" />
+  </EntityType>
+  <EntityType Name="Employe">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="USR" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="PSW" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+    <Property Name="DepID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Departement" Relationship="NLH_ALEX_LEDUCModel1.FK_Employe_Departement" FromRole="Employe" ToRole="Departement" />
+    <NavigationProperty Name="Medecins" Relationship="NLH_ALEX_LEDUCModel1.FK_Medecin_Employe" FromRole="Employe" ToRole="Medecin" />
+  </EntityType>
+  <EntityType Name="Lit">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Occupe" Type="Boolean" />
+    <Property Name="ChambreID" Type="Int32" />
+    <NavigationProperty Name="Chambre" Relationship="NLH_ALEX_LEDUCModel1.FK_Lit_Chambre" FromRole="Lit" ToRole="Chambre" />
+    <NavigationProperty Name="Sejours" Relationship="NLH_ALEX_LEDUCModel1.FK_Sejour_Lit" FromRole="Lit" ToRole="Sejour" />
+  </EntityType>
+  <EntityType Name="Medecin">
+    <Key>
+      <PropertyRef Name="MedID" />
+    </Key>
+    <Property Name="MedID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepMedID" Type="Int32" />
+    <Property Name="EmpID" Type="Int32" />
+    <NavigationProperty Name="DepartementMedical" Relationship="NLH_ALEX_LEDUCModel1.FK_Medecin_DepartementMedical" FromRole="Medecin" ToRole="DepartementMedical" />
+    <NavigationProperty Name="Employe" Relationship="NLH_ALEX_LEDUCModel1.FK_Medecin_Employe" FromRole="Medecin" ToRole="Employe" />
+    <NavigationProperty Name="Sejours" Relationship="NLH_ALEX_LEDUCModel1.FK_Sejour_Medecin" FromRole="Medecin" ToRole="Sejour" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parent" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="BirthDate" Type="DateTime" Precision="0" />
+    <Property Name="Assurance" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sejours" Relationship="NLH_ALEX_LEDUCModel1.FK_Sejour_Patient" FromRole="Patient" ToRole="Sejour" />
+  </EntityType>
+  <EntityType Name="Sejour">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Tele" Type="Boolean" />
+    <Property Name="PreDispo" Type="Byte" />
+    <Property Name="LitID" Type="Int32" />
+    <Property Name="PatientID" Type="Int32" />
+    <Property Name="MedID" Type="Int32" />
+    <NavigationProperty Name="Lit" Relationship="NLH_ALEX_LEDUCModel1.FK_Sejour_Lit" FromRole="Sejour" ToRole="Lit" />
+    <NavigationProperty Name="Medecin" Relationship="NLH_ALEX_LEDUCModel1.FK_Sejour_Medecin" FromRole="Sejour" ToRole="Medecin" />
+    <NavigationProperty Name="Patient" Relationship="NLH_ALEX_LEDUCModel1.FK_Sejour_Patient" FromRole="Sejour" ToRole="Patient" />
+  </EntityType>
+  <EntityType Name="EmpDepView">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="NomDept" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Prenom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="USR" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Chambre_Chambre">
+    <End Type="NLH_ALEX_LEDUCModel1.DepartementMedical" Role="DepartementMedical" Multiplicity="0..1" />
+    <End Type="NLH_ALEX_LEDUCModel1.Chambre" Role="Chambre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DepartementMedical">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Chambre">
+        <PropertyRef Name="DepMedID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Lit_Chambre">
+    <End Type="NLH_ALEX_LEDUCModel1.Chambre" Role="Chambre" Multiplicity="0..1" />
+    <End Type="NLH_ALEX_LEDUCModel1.Lit" Role="Lit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Chambre">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Lit">
+        <PropertyRef Name="ChambreID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employe_Departement">
+    <End Type="NLH_ALEX_LEDUCModel1.Departement" Role="Departement" Multiplicity="1" />
+    <End Type="NLH_ALEX_LEDUCModel1.Employe" Role="Employe" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departement">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Employe">
+        <PropertyRef Name="DepID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Medecin_DepartementMedical">
+    <End Type="NLH_ALEX_LEDUCModel1.DepartementMedical" Role="DepartementMedical" Multiplicity="0..1" />
+    <End Type="NLH_ALEX_LEDUCModel1.Medecin" Role="Medecin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DepartementMedical">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Medecin">
+        <PropertyRef Name="DepMedID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Medecin_Employe">
+    <End Type="NLH_ALEX_LEDUCModel1.Employe" Role="Employe" Multiplicity="0..1" />
+    <End Type="NLH_ALEX_LEDUCModel1.Medecin" Role="Medecin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employe">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Medecin">
+        <PropertyRef Name="EmpID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sejour_Lit">
+    <End Type="NLH_ALEX_LEDUCModel1.Lit" Role="Lit" Multiplicity="0..1" />
+    <End Type="NLH_ALEX_LEDUCModel1.Sejour" Role="Sejour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Lit">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sejour">
+        <PropertyRef Name="LitID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sejour_Medecin">
+    <End Type="NLH_ALEX_LEDUCModel1.Medecin" Role="Medecin" Multiplicity="0..1" />
+    <End Type="NLH_ALEX_LEDUCModel1.Sejour" Role="Sejour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medecin">
+        <PropertyRef Name="MedID" />
+      </Principal>
+      <Dependent Role="Sejour">
+        <PropertyRef Name="MedID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sejour_Patient">
+    <End Type="NLH_ALEX_LEDUCModel1.Patient" Role="Patient" Multiplicity="0..1" />
+    <End Type="NLH_ALEX_LEDUCModel1.Sejour" Role="Sejour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Sejour">
+        <PropertyRef Name="PatientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

@@ -1,0 +1,103 @@
+﻿<Page x:Class="TPI_NLH_Alex_Leduc.VueAdminDepartements"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:TPI_NLH_Alex_Leduc"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="Admin" Width="720" Height="400">
+
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+
+        <Label Content="Admin - Départements" FontSize="18" FontWeight="SemiBold" 
+               Grid.Column="1" Grid.ColumnSpan="6"
+               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        
+        <!-- Bloc ID/Nom -->
+        <Label Content="ID" Grid.Column="1" Grid.Row="2"
+               HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <Label Content="Nom du département" Grid.Column="2" Grid.Row="2"
+               HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <TextBox Name="txtID" IsReadOnly="True"
+                 MinWidth="45" Grid.Column="1" Grid.Row="3"
+                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBox Name="txtNomDep" MinWidth="120" Grid.Column="2" Grid.Row="3"
+                 HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Label Content="Département Médical?" Margin="20,0,0,0"
+               Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2"
+               HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <CheckBox Name="xbIsMedical" Margin="0,0,40,0"
+                  Grid.Column="2" Grid.Row="4"
+                  HorizontalAlignment="Right" VerticalAlignment="Center"/>
+
+
+        <!-- Boutons -->
+        <Button Name="btnRetour" Content="◄" FontSize="20" Margin="5,5" Click="btnRetour_Click"/>
+        <Button Name="btnOk" Content="Ajouter"
+                Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" MinWidth="75"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnOk_Click"/>
+        <Button Name="btnNo" Content="Annuler" Visibility="Hidden"
+                Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" MinWidth="75"
+                HorizontalAlignment="Center" VerticalAlignment="Center" Click="btnNo_Click"/>
+
+        <!-- Datagrid Départements -->
+        <Label Content="Départements" Grid.Column="4" Grid.Row="1"
+               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        
+        <DataGrid Name="dgDepts" AutoGenerateColumns="False"
+                  Grid.Column="4" Grid.Row="2" Grid.RowSpan="6"
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+            <DataGrid.ContextMenu>
+                <ContextMenu ItemsSource="{Binding RelativeSource={RelativeSource Self}}">
+                    <MenuItem Name="menuEdit" Header="Editer" Click="menuEdit_Click"/>
+                    <MenuItem Name="menuSupp" Header="Supprimer" Click="menuSupp_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}"/>
+                <DataGridTextColumn Header="Nom" Binding="{Binding Path=NomDept}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- DataGrid Départements Médicaux -->
+        <Label Content="Dépts. Médicaux" Grid.Column="6" Grid.Row="1"
+               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        
+        <DataGrid Name="dgDeptMed" AutoGenerateColumns="False"
+                  Grid.Column="6" Grid.Row="2" Grid.RowSpan="6"
+                  SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+            <DataGrid.ContextMenu>
+                <ContextMenu ItemsSource="{Binding RelativeSource={RelativeSource Self}}">
+                    <MenuItem Name="menuEditMed" Header="Editer" Click="menuEditMed_Click"/>
+                    <MenuItem Name="menuSuppMed" Header="Supprimer" Click="menuSuppMed_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Path=ID}"/>
+                <DataGridTextColumn Header="Nom" Binding="{Binding Path=NomDeptMed}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

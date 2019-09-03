@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NLH_ALEX_LEDUCModelStoreContainer" CdmEntityContainer="NLH_ALEX_LEDUCEntities">
+    <EntitySetMapping Name="Chambres">
+      <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.Chambre">
+        <MappingFragment StoreEntitySet="Chambre">
+          <ScalarProperty Name="DepMedID" ColumnName="DepMedID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Tarif" ColumnName="Tarif" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Departements">
+      <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.Departement">
+        <MappingFragment StoreEntitySet="Departement">
+          <ScalarProperty Name="NomDept" ColumnName="NomDept" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DepartementMedicals">
+      <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.DepartementMedical">
+        <MappingFragment StoreEntitySet="DepartementMedical">
+          <ScalarProperty Name="NomDeptMed" ColumnName="NomDeptMed" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employes">
+      <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.Employe">
+        <MappingFragment StoreEntitySet="Employe">
+          <ScalarProperty Name="DepID" ColumnName="DepID" />
+          <ScalarProperty Name="PSW" ColumnName="PSW" />
+          <ScalarProperty Name="USR" ColumnName="USR" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lits">
+      <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.Lit">
+        <MappingFragment StoreEntitySet="Lit">
+          <ScalarProperty Name="ChambreID" ColumnName="ChambreID" />
+          <ScalarProperty Name="Occupe" ColumnName="Occupe" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medecins">
+      <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.Medecin">
+        <MappingFragment StoreEntitySet="Medecin">
+          <ScalarProperty Name="DepMedID" ColumnName="DepMedID" />
+          <ScalarProperty Name="MedID" ColumnName="MedID" />
+          <ScalarProperty Name="EmpID" ColumnName="EmpID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Patients">
+      <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.Patient">
+        <MappingFragment StoreEntitySet="Patient">
+          <ScalarProperty Name="Assurance" ColumnName="Assurance" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Parent" ColumnName="Parent" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sejours">
+      <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.Sejour">
+        <MappingFragment StoreEntitySet="Sejour">
+          <ScalarProperty Name="TotalFacture" ColumnName="TotalFacture" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Television" ColumnName="Television" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+          <ScalarProperty Name="MedID" ColumnName="MedID" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="LitID" ColumnName="LitID" />
+          <ScalarProperty Name="PreDispo" ColumnName="PreDispo" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EmpViews">
+      <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.EmpView">
+        <MappingFragment StoreEntitySet="EmpView">
+          <ScalarProperty Name="NomDept" ColumnName="NomDept" />
+          <ScalarProperty Name="USR" ColumnName="USR" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MedViews">
+      <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.MedView">
+        <MappingFragment StoreEntitySet="MedView">
+          <ScalarProperty Name="NomDeptMed" ColumnName="NomDeptMed" />
+          <ScalarProperty Name="MedID" ColumnName="MedID" />
+          <ScalarProperty Name="NomDept" ColumnName="NomDept" />
+          <ScalarProperty Name="PSW" ColumnName="PSW" />
+          <ScalarProperty Name="USR" ColumnName="USR" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SejMedViews">
+      <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.SejMedView">
+        <MappingFragment StoreEntitySet="SejMedView">
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+          <ScalarProperty Name="MedID" ColumnName="MedID" />
+          <ScalarProperty Name="LitID" ColumnName="LitID" />
+          <ScalarProperty Name="NomDeptMed" ColumnName="NomDeptMed" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+          <ScalarProperty Name="Nom" ColumnName="Nom" />
+          <ScalarProperty Name="Prenom" ColumnName="Prenom" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SejourViews">
+      <EntityTypeMapping TypeName="NLH_ALEX_LEDUCModel.SejourView">
+        <MappingFragment StoreEntitySet="SejourView">
+          <ScalarProperty Name="ChambreID" ColumnName="ChambreID" />
+          <ScalarProperty Name="LitID" ColumnName="LitID" />
+          <ScalarProperty Name="TotalFacture" ColumnName="TotalFacture" />
+          <ScalarProperty Name="Telephone" ColumnName="Telephone" />
+          <ScalarProperty Name="Television" ColumnName="Television" />
+          <ScalarProperty Name="DateFin" ColumnName="DateFin" />
+          <ScalarProperty Name="DateDebut" ColumnName="DateDebut" />
+          <ScalarProperty Name="PreDispo" ColumnName="PreDispo" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="NomDeptMed" ColumnName="NomDeptMed" />
+          <ScalarProperty Name="Enom" ColumnName="Enom" />
+          <ScalarProperty Name="Eprenom" ColumnName="Eprenom" />
+          <ScalarProperty Name="Pnom" ColumnName="Pnom" />
+          <ScalarProperty Name="Pprenom" ColumnName="Pprenom" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
