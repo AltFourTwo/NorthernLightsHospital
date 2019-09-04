@@ -1,5 +1,5 @@
 # NorthernLightsHospital
-Final Assignment for the "Development Techniques in a Graphical Environment" course/class. 
+Final Assignment for the "Development Techniques in a Graphical Environment" course/class.   
 The goal was to create a WPF application using XAML and databindings along with Entity Framework, LINQ and Microsoft SQL Server.
 
 Things I've Learned
